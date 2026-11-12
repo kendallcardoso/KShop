@@ -937,7 +937,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
 
   * { transition: none !important; }
-
+  .entrar, .sair { animation: none !important; }
   html { scroll-behavior: auto; }
 
 }
@@ -1694,4 +1694,42 @@ body {
 .btn-finalizar:disabled {
     opacity: 0.7;
     cursor: not-allowed;
+}
+/* ---------- Correção de largura no telemóvel ---------- */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;   /* impede o scroll lateral */
+}
+
+img { max-width: 100%; }
+
+.rodape-conteudo > *,
+.hero > * {
+  min-width: 0;         /* deixa as colunas do grid encolherem */
+}
+
+.rodape-col a,
+.rodape-col li {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 768px) {
+  .rodape-conteudo {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px 24px;
+    padding: 50px 20px 30px;
+  }
+  .rodape-marca {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 480px) {
+  .rodape-conteudo {
+    grid-template-columns: 1fr;
+  }
+  .carrinho,
+  .painel-notif {
+    width: 100%;
+  }
 }
