@@ -1,8 +1,11 @@
 /* ===== Cabeçalho do painel ===== */
+
 .dashboard-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
     margin-bottom: 25px;
 }
 
@@ -21,25 +24,35 @@
 }
 
 /* ===== Grelha de pedidos ===== */
+
 .pedidos-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
     gap: 22px;
-    align-items: stretch; /* cards da mesma linha com a mesma altura */
+    align-items: stretch;
+    width: 100%;
+    min-width: 0;
 }
 
 /* ===== Card ===== */
+
 .pedido-card {
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    overflow-wrap: anywhere;
+
     background: #fff;
     border: 1px solid #eee7dc;
     border-radius: 12px;
     padding: 22px;
+
     box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+
     font-size: 14px;
     line-height: 1.5;
     color: #333;
+
     transition: transform .25s, box-shadow .25s;
 }
 
@@ -48,12 +61,15 @@
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
-/* Topo: código + estado */
+/* ===== Topo: código + estado ===== */
+
 .pedido-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
     gap: 10px;
+
     padding-bottom: 14px;
     margin-bottom: 14px;
     border-bottom: 1px solid #eee7dc;
@@ -63,6 +79,7 @@
     font-size: 15px;
     font-weight: 700;
     color: #25211c;
+    overflow-wrap: anywhere;
 }
 
 .pedido-status {
@@ -75,9 +92,11 @@
     white-space: nowrap;
 }
 
-/* Cliente e data: rótulo em negrito, valor normal */
+/* ===== Cliente e data ===== */
+
 .pedido-info {
     margin-bottom: 16px;
+    min-width: 0;
 }
 
 .pedido-info p {
@@ -85,6 +104,7 @@
     font-size: 13px;
     font-weight: 400;
     color: #666;
+    overflow-wrap: anywhere;
 }
 
 .pedido-info strong {
@@ -92,7 +112,8 @@
     color: #333;
 }
 
-/* Título da secção de produtos */
+/* ===== Título da secção ===== */
+
 .pedido-card h4 {
     margin: 0 0 10px;
     font-size: 11px;
@@ -102,12 +123,14 @@
     color: #96702c;
 }
 
-/* Cada produto */
+/* ===== Cada produto ===== */
+
 .produto-pedido {
     padding: 10px 12px;
     margin-bottom: 8px;
     background: #faf7f2;
     border-radius: 8px;
+    min-width: 0;
 }
 
 .produto-pedido p {
@@ -115,6 +138,7 @@
     font-size: 13px;
     font-weight: 400;
     color: #666;
+    overflow-wrap: anywhere;
 }
 
 .produto-pedido p strong {
@@ -125,7 +149,8 @@
     color: #25211c;
 }
 
-/* Último "Subtotal" em destaque */
+/* ===== Subtotal ===== */
+
 .produto-pedido p:last-child {
     margin-top: 4px;
     padding-top: 4px;
@@ -134,7 +159,33 @@
     color: #25211c;
 }
 
-/* ===== Botões (sempre no fundo do card) ===== */
+/* ===== Total ===== */
+
+.pedido-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin-top: 6px;
+    padding: 12px 0 0;
+
+    border-top: 1px solid #eee7dc;
+
+    font-size: 14px;
+    color: #666;
+}
+
+.pedido-total strong {
+    font-size: 17px;
+    font-weight: 700;
+    color: #b8893b;
+    overflow-wrap: anywhere;
+}
+
+/* ===== Botões ===== */
+
 .pedido-acoes {
     display: flex;
     gap: 10px;
@@ -144,28 +195,44 @@
 
 .pedido-acoes form {
     flex: 1;
+    min-width: 0;
     margin: 0;
 }
 
 .pedido-acoes button {
     width: 100%;
+    min-height: 42px;
     padding: 11px 8px;
+
     border: none;
     border-radius: 7px;
+
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
     color: #fff;
+
     transition: background .2s;
 }
 
-.concluir-btn { background: #198754; }
-.concluir-btn:hover { background: #146c43; }
+.concluir-btn {
+    background: #198754;
+}
 
-.eliminar-btn { background: #dc3545; }
-.eliminar-btn:hover { background: #bb2d3b; }
+.concluir-btn:hover {
+    background: #146c43;
+}
 
-/* Sem pedidos */
+.eliminar-btn {
+    background: #dc3545;
+}
+
+.eliminar-btn:hover {
+    background: #bb2d3b;
+}
+
+/* ===== Sem pedidos ===== */
+
 .pedidos-container > p {
     grid-column: 1 / -1;
     padding: 40px 20px;
@@ -174,19 +241,68 @@
     background: #fff;
     border: 1px solid #eee7dc;
     border-radius: 12px;
-}.pedido-total {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 6px;
-    padding: 12px 0 0;
-    border-top: 1px solid #eee7dc;
-    font-size: 14px;
-    color: #666;
 }
 
-.pedido-total strong {
-    font-size: 17px;
-    font-weight: 700;
-    color: #b8893b;
+/* ===== Tablets ===== */
+
+@media (max-width: 768px) {
+    .pedidos-container {
+        grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
+        gap: 16px;
+    }
+
+    .pedido-card {
+        padding: 18px;
+    }
+}
+
+/* ===== Telemóveis ===== */
+
+@media (max-width: 480px) {
+    .dashboard-header {
+        align-items: flex-start;
+        margin-bottom: 18px;
+    }
+
+    .dashboard-header h2 {
+        font-size: 19px;
+    }
+
+    .pedidos-container {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .pedido-card {
+        padding: 17px;
+    }
+
+    .pedido-acoes {
+        gap: 8px;
+    }
+
+    .pedido-acoes button {
+        font-size: 12px;
+        padding: 11px 5px;
+    }
+}
+
+/* ===== Telemóveis pequenos ===== */
+
+@media (max-width: 320px) {
+    .pedido-card {
+        padding: 13px;
+    }
+
+    .pedido-acoes {
+        flex-direction: column;
+    }
+
+    .pedido-acoes form {
+        width: 100%;
+    }
+
+    .pedido-top {
+        align-items: flex-start;
+    }
 }

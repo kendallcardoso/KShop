@@ -1,40 +1,132 @@
+/* Reset geral */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+/* Página */
+body {
+    font-family: sans-serif;
+    background: #f5f0ea;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    padding: 20px;
+}
+
+/* Caixa do formulário */
+.box {
+    background: #fff;
+    padding: 32px;
+    border-radius: 12px;
+
+    width: 100%;
+    max-width: 400px;
+
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Título */
+.box h1 {
+    margin-bottom: 24px;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #222;
+}
+
+/* Labels */
+.box label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+/* Campos */
+.box input {
+    display: block;
+    width: 100%;
+
+    padding: 12px;
+    margin-bottom: 18px;
+
+    border: 1px solid #ccc;
+    border-radius: 8px;
+
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.box input:focus {
+    border-color: #b8893b;
+}
+
+/* Botão */
+.box button {
+    width: 100%;
+    padding: 13px;
+
+    background: #111;
+    color: #fff;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s;
+}
+
+.box button:hover {
+    background: #333;
+}
+
+/* Erro */
+.erro {
+    color: #c0392b;
+    margin-bottom: 16px;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+/* Alternativa */
+.alt {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 0.9rem;
+}
+
+/* Telemóveis */
+@media (max-width: 480px) {
     body {
-      font-family: sans-serif;
-      background: #f5f0ea;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      margin: 0;
+        padding: 16px;
+        align-items: center;
     }
+
     .box {
-      background: #fff;
-      padding: 32px;
-      border-radius: 12px;
-      width: 100%;
-      max-width: 360px;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        padding: 24px 20px;
+        border-radius: 10px;
     }
-    .box h1 { margin: 0 0 20px; font-size: 1.5rem; }
-    .box label { display: block; margin-bottom: 4px; font-size: 0.9rem; }
-    .box input {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 16px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-sizing: border-box;
+
+    .box h1 {
+        font-size: 1.3rem;
     }
-    .box button {
-      width: 100%;
-      padding: 12px;
-      background: #111;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      font-size: 1rem;
+}
+
+/* Ecrãs muito pequenos */
+@media (max-width: 320px) {
+    body {
+        padding: 10px;
     }
-    .erro { color: #c0392b; margin-bottom: 16px; font-size: 0.9rem; }
-    .alt { text-align: center; margin-top: 16px; font-size: 0.9rem; }
+
+    .box {
+        padding: 20px 14px;
+    }
+}

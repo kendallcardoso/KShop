@@ -1,3 +1,4 @@
+/* ---------- Reset ---------- */
 
 * {
     margin: 0;
@@ -5,8 +6,15 @@
     box-sizing: border-box;
 }
 
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
+
 body {
+    width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
     font-family: Arial, sans-serif;
     background: #ece6da;
     color: #25211c;
@@ -15,11 +23,15 @@ body {
 /* ---------- Container ---------- */
 
 .login-container {
+    width: 100%;
     min-height: 100vh;
+    min-height: 100dvh;
+
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 25px;
+
+    padding: 25px 16px;
 }
 
 /* ---------- Card ---------- */
@@ -27,10 +39,14 @@ body {
 .login-card {
     width: 100%;
     max-width: 430px;
+    min-width: 0;
+
     background: #fff;
     padding: 40px;
+
     border-radius: 14px;
     border: 1px solid #e5d8c2;
+
     box-shadow: 0 10px 35px rgba(0,0,0,0.08);
 }
 
@@ -46,6 +62,7 @@ body {
     font-size: 43px;
     color: #b8893b;
     font-weight: normal;
+    overflow-wrap: anywhere;
 }
 
 .logo span {
@@ -89,12 +106,18 @@ body {
 }
 
 .campo input {
+    display: block;
     width: 100%;
+    max-width: 100%;
+
     padding: 14px;
+
     border: 1px solid #d8d0c4;
     border-radius: 7px;
+
     outline: none;
-    font-size: 14px;
+    font-size: 16px;
+
     transition: 0.3s;
 }
 
@@ -110,14 +133,20 @@ body {
 /* ---------- Botão ---------- */
 
 .btn-login {
+    display: block;
     width: 100%;
+
     padding: 15px;
+
     border: none;
     border-radius: 7px;
+
     background: #b8893b;
     color: white;
+
     font-size: 15px;
     font-weight: 600;
+
     cursor: pointer;
     transition: 0.3s;
     margin-top: 5px;
@@ -135,6 +164,7 @@ body {
     font-size: 13px;
     margin-bottom: 18px;
     text-align: center;
+    overflow-wrap: anywhere;
 }
 
 .mensagem.error {
@@ -168,18 +198,69 @@ body {
     margin-top: 8px;
 }
 
-/* ---------- Responsividade ---------- */
+/* ---------- Tablets ---------- */
+
+@media (max-width: 768px) {
+    .login-container {
+        padding: 24px 16px;
+    }
+
+    .login-card {
+        max-width: 430px;
+    }
+}
+
+/* ---------- Telemóveis ---------- */
 
 @media (max-width: 480px) {
+    .login-container {
+        padding: 16px 12px;
+        align-items: center;
+    }
+
     .login-card {
-        padding: 28px 22px;
+        padding: 28px 20px;
+        border-radius: 10px;
+    }
+
+    .logo {
+        margin-bottom: 25px;
     }
 
     .logo h1 {
         font-size: 36px;
     }
 
+    .logo span {
+        letter-spacing: 4px;
+    }
+
     .login-header h2 {
         font-size: 19px;
+    }
+
+    .login-footer {
+        margin-top: 24px;
+    }
+}
+
+/* ---------- Ecrãs muito pequenos ---------- */
+
+@media (max-width: 320px) {
+    .login-container {
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 22px 14px;
+    }
+
+    .logo h1 {
+        font-size: 31px;
+    }
+
+    .logo span {
+        letter-spacing: 3px;
+        font-size: 10px;
     }
 }
