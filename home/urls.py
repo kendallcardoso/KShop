@@ -1,0 +1,26 @@
+from django.urls import path,include
+from . import views
+urlpatterns=[
+    path("",views.view_home,name="produtos"),
+    path("admin/",views.loginAdmin ,name="loginadmin"),
+    path("admin/painel",views.adminpage ,name="adminpage"),
+    path("api/produtos/", views.api_produtos , name="api_produtos"),
+    path("quemsomos/",views.nos,name="quemsomos"),
+    path("nossahistoria/",views.historia ,name="nossahistoria"),
+    path("missaoevalores/",views.missao ,name="missaoevalores"),
+    path("produto/<str:categoria>", views.produto,name="produto"),
+    path("finalizar/compra", views.finalizar ,name="finalizar"),
+    path("contas/cadastro/", views.cadastro, name="cadastro"),
+    path("contas/", include("django.contrib.auth.urls")),
+    path("api/notificacoes/", views.api_notificacoes, name="api_notificacoes"),
+    path("api/pedidos/<int:pedido_id>/cancelar/", views.cancelar_pedido, name="cancelar_pedido"),
+    path("admin/cadastrar/produtos/",views.cadastrarprodutos,name="cadastrarprodutos"),
+    path("admin/cadastrar/Usuarios/",views.cadastrarusers,name="cadastrarusers"),
+    path("admin/listar/produtos",views.listarprod,name="listarprod"),
+    path("admin/listar/users", views.listarusers,name="listarusers"),
+    path("apagar/user",views.apagaruser, name="apagaruser"),
+    path("users/editar",views.editaru,name="editaru"),
+    path("produtos/editar", views.obter_produto, name="obter_produto"),
+    path("produtos/atualizar/", views.atualizar_produto, name="atualizar_produto"),
+    path("produtos/apagar/", views.apagar_produto, name="apagar_produto"),
+]

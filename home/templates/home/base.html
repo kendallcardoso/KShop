@@ -1,0 +1,79 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    <title>{% block title %}KShop | Administração{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
+
+<body>
+
+    <div class="admin-container">
+
+        <aside class="sidebar">
+
+            <a href="/" class="logo">
+                <img src="{% static 'img/kshop-logo.svg' %}" alt="KShop Cosméticos">
+            </a>
+
+            <nav>
+                <a href="{% url 'adminpage' %}" class="menu-btn">
+                    Inicio
+                </a>
+                 <a href="{% url 'listarprod' %}" class="menu-btn">
+                    Listar produtos
+                </a>
+                
+                <a href="{% url 'listarusers' %}" class="menu-btn">
+                    Users
+                </a>
+
+               
+
+            
+                <form method="post" action="{% url 'logout' %}" class="logout-btn" >
+                {% csrf_token %}
+                <button type="submit">Sair</button>
+                </form>
+            </nav>
+
+            
+
+        </aside>
+
+        <main class="main-content">
+
+            <header class="topbar">
+                <div>
+                    <h1>{% block page_title %}Painel Administrativo{% endblock %}</h1>
+                    <p>{% block page_description %}Gestão da KShop Cosméticos{% endblock %}</p>
+                </div>
+
+                <div class="profile">
+                    <div class="avatar">
+                        {{ request.user.username|first|upper }}
+                    </div>
+
+                    <span>{{ request.user.username }}</span>
+                </div>
+            </header>
+
+            <section class="page-content">
+                {% block content %}{% endblock %}
+            </section>
+
+        </main>
+
+    </div>
+
+    {% block extra_js %}{% endblock %}
+
+</body>
+</html>

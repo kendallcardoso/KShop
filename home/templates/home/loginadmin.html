@@ -1,0 +1,82 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login Admin | KShop</title>
+
+    <link rel="stylesheet" href="{% static 'css/loginadmin.css' %}">
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <div class="login-card">
+
+        <div class="logo">
+            <h1>KShop</h1>
+            <span>COSMÉTICOS</span>
+        </div>
+
+        <div class="login-header">
+            <h2>Painel Administrativo</h2>
+            <p>Faça login para aceder ao painel de gestão.</p>
+        </div>
+
+        {% if messages %}
+            {% for message in messages %}
+                <div class="mensagem {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+
+        <form method="POST" action="{% url 'loginadmin' %}">
+
+            {% csrf_token %}
+
+            <div class="campo">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    placeholder="Introduza o username"
+                    required
+                >
+            </div>
+
+            <div class="campo">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Introduza a password"
+                    required
+                >
+            </div>
+
+            <button type="submit" class="btn-login">
+                Entrar
+            </button>
+
+        </form>
+
+        <div class="login-footer">
+            <span>KShop Cosméticos</span>
+            <p>Beleza que inspira confiança.</p>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
+

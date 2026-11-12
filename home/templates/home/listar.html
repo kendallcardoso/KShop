@@ -1,0 +1,117 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Listar Produtos | KShop{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/listar.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="listar-container">
+
+    <div class="pagina-header">
+        <div>
+            <h1>Produtos cadastrados</h1>
+            <p>Consulta e gere os produtos da KShop Cosméticos.</p>
+        </div>
+
+        <a href="{% url 'cadastrarprodutos' %}" class="btn-adicionar">
+            + Novo produto
+        </a>
+    </div>
+
+    <div class="lista-card">
+
+        <div class="lista-topo">
+            <h2>Lista de produtos</h2>
+            <span>{{ pr|length }} produtos</span>
+        </div>
+
+        <div class="tabela-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Preço</th>
+                        <th>Quantidade</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for produto in pr %}
+                    <tr>
+
+                        <td>
+                            <div class="produto-info">
+
+                                {% if produto.img %}
+                                    <img src="{{ produto.img.url }}"
+                                         alt="{{ produto.nome }}">
+                                {% else %}
+                                    <div class="sem-imagem">
+                                        <span>IMG</span>
+                                    </div>
+                                {% endif %}
+
+                                <span>{{ produto.nome }}</span>
+                            </div>
+                        </td>
+
+                        <td>
+                            <span class="categoria">
+                                {{ produto.categoria }}
+                            </span>
+                        </td>
+
+                        <td class="preco">
+                            {{ produto.preco }} Kz
+                        </td>
+
+                        <td>
+                            <span class="quantidade">
+                                {{ produto.quantidade }}
+                            </span>
+                        </td>
+
+                        <td>
+                            <div class="acoes">
+
+                                <button 
+                                   class="btn-editar" id="btn-editar" data-id ="{{ produto.id }}">
+                                    Editar
+                                </button>
+
+                                
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="sem-produtos">
+                            Nenhum produto cadastrado.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="{% static 'js/listprodutos.js' %}"></script>
+{% endblock %}

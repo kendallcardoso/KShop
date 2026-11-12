@@ -1,0 +1,351 @@
+
+/* ---------- Container ---------- */
+
+.listar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
+    box-sizing: border-box;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.pagina-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.pagina-header h1 {
+    font-size: 27px;
+    color: #25211c;
+    margin: 0 0 8px;
+}
+
+.pagina-header p {
+    color: #77716a;
+    font-size: 14px;
+    margin: 0;
+}
+
+.btn-adicionar {
+    background: #b8893b;
+    color: white;
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-adicionar:hover {
+    background: #96702c;
+}
+
+/* ---------- Card ---------- */
+
+.lista-card {
+    background: #fff;
+    border-radius: 12px;
+    border: 1px solid #eee8de;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.04);
+    overflow: hidden;
+}
+
+.lista-topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px;
+    border-bottom: 1px solid #eee8de;
+}
+
+.lista-topo h2 {
+    font-size: 17px;
+    color: #25211c;
+    margin: 0;
+}
+
+.lista-topo span {
+    color: #96702c;
+    background: #f5eee2;
+    padding: 7px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+/* ---------- Tabela ---------- */
+
+.tabela-container {
+    width: 100%;
+    max-height: 390px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 750px;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #faf8f4;
+}
+
+.tabela-container thead {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+th {
+    text-align: left;
+    padding: 16px;
+    color: #77716a;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+td {
+    padding: 16px;
+    border-top: 1px solid #f0ece5;
+    color: #39342d;
+    font-size: 13px;
+}
+
+/* ---------- Utilizador ---------- */
+
+.produto-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 160px;
+    font-weight: 600;
+}
+
+.user-avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f5eee2;
+    color: #96702c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    font-weight: 700;
+    flex-shrink: 0;
+}
+
+/* ---------- Estado ---------- */
+
+.estado {
+    padding: 6px 11px;
+    border-radius: 5px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.ativo {
+    background: #e7f5eb;
+    color: #28864a;
+}
+
+.inativo {
+    background: #fff0ed;
+    color: #c04436;
+}
+
+/* ---------- Ações ---------- */
+
+.acoes {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.acoes form {
+    margin: 0;
+}
+
+.btn-editar,
+.btn-eliminar {
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.btn-editar {
+    background: #f5eee2;
+    color: #96702c;
+}
+
+.btn-editar:hover {
+    background: #e9dcc5;
+}
+
+.btn-eliminar {
+    background: #fff0ed;
+    color: #c04436;
+}
+
+.btn-eliminar:hover {
+    background: #fbd9d3;
+}
+
+/* ---------- Vazio ---------- */
+
+.sem-produtos {
+    text-align: center;
+    padding: 40px;
+    color: #999;
+}
+
+/* ---------- Scroll ---------- */
+
+.tabela-container::-webkit-scrollbar {
+    width: 7px;
+    height: 7px;
+}
+
+.tabela-container::-webkit-scrollbar-track {
+    background: #f5f1e9;
+}
+
+.tabela-container::-webkit-scrollbar-thumb {
+    background: #b8893b;
+    border-radius: 10px;
+}
+
+/* ---------- Responsividade ---------- */
+
+@media (max-width: 650px) {
+
+    .listar-container {
+        padding: 15px;
+    }
+
+    .pagina-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pagina-header h1 {
+        font-size: 23px;
+    }
+
+    .lista-topo {
+        padding: 16px;
+    }
+}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-caixa {
+  background: #fff;
+  padding: 28px 32px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+.modal-caixa h3 {
+  margin: 0 0 10px;
+  font-size: 20px;
+}
+
+.modal-caixa p {
+  margin: 0 0 24px;
+  color: #555;
+}
+
+.modal-botoes {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.modal-btn {
+  padding: 10px 28px;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.modal-btn-nao {
+  background: #e5e5e5;
+  color: #333;
+}
+
+.modal-btn-sim {
+  background: #d9534f;
+  color: #fff;
+}
+.modal-form {
+  text-align: left;
+}
+
+.modal-form h3 {
+  text-align: center;
+  margin-bottom: 18px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 16px;
+  font-size: 14px;
+  color: #444;
+}
+
+.campo input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.campo-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  color: #444;
+  cursor: pointer;
+}
+
+.modal-form .modal-botoes {
+  margin-top: 22px;
+}
+
+.modal-btn-guardar {
+  background: #c9a227;
+  color: #fff;
+}

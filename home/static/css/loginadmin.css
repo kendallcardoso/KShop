@@ -1,0 +1,185 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    background: #ece6da;
+    color: #25211c;
+}
+
+/* ---------- Container ---------- */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+/* ---------- Card ---------- */
+
+.login-card {
+    width: 100%;
+    max-width: 430px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 14px;
+    border: 1px solid #e5d8c2;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.08);
+}
+
+/* ---------- Logo ---------- */
+
+.logo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.logo h1 {
+    font-family: Georgia, serif;
+    font-size: 43px;
+    color: #b8893b;
+    font-weight: normal;
+}
+
+.logo span {
+    display: block;
+    letter-spacing: 5px;
+    font-size: 11px;
+    color: #555;
+    margin-top: 5px;
+}
+
+/* ---------- Cabeçalho ---------- */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.login-header h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    font-size: 13px;
+    color: #77716a;
+    line-height: 1.5;
+}
+
+/* ---------- Campos ---------- */
+
+.campo {
+    margin-bottom: 20px;
+}
+
+.campo label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #39342d;
+}
+
+.campo input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #d8d0c4;
+    border-radius: 7px;
+    outline: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.campo input:focus {
+    border-color: #b8893b;
+    box-shadow: 0 0 0 3px rgba(184,137,59,0.12);
+}
+
+.campo input::placeholder {
+    color: #aaa39a;
+}
+
+/* ---------- Botão ---------- */
+
+.btn-login {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 7px;
+    background: #b8893b;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.btn-login:hover {
+    background: #96702c;
+}
+
+/* ---------- Mensagens ---------- */
+
+.mensagem {
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.mensagem.error {
+    background: #fff0ed;
+    color: #c04436;
+    border: 1px solid #f3d0c9;
+}
+
+.mensagem.success {
+    background: #e7f5eb;
+    color: #28864a;
+}
+
+/* ---------- Rodapé ---------- */
+
+.login-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee8de;
+}
+
+.login-footer span {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.login-footer p {
+    font-size: 12px;
+    color: #999;
+    margin-top: 8px;
+}
+
+/* ---------- Responsividade ---------- */
+
+@media (max-width: 480px) {
+    .login-card {
+        padding: 28px 22px;
+    }
+
+    .logo h1 {
+        font-size: 36px;
+    }
+
+    .login-header h2 {
+        font-size: 19px;
+    }
+}

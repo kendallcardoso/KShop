@@ -1,0 +1,78 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Cadastrar Utilizador | KShop{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/cadastraruser.css' %}">
+{% endblock %}
+
+{% block page_title %}
+Cadastrar Utilizador
+{% endblock %}
+
+{% block page_description %}
+Adicione novos utilizadores à KShop Cosméticos.
+{% endblock %}
+
+{% block content %}
+
+<div class="user-container">
+
+    <div class="form-header">
+        <h2>Novo utilizador</h2>
+        <p>Preencha os dados para criar uma nova conta.</p>
+    </div>
+
+    {% if sms %}
+        <div class="mensagem {{ status }}">
+            {{ sms }}
+        </div>
+    {% endif %}
+
+    <form method="POST" class="user-form">
+
+        {% csrf_token %}
+
+        <div class="form-grid">
+
+
+            <div class="campo">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email"
+                       placeholder="exemplo@email.com" required>
+            </div>
+
+            <div class="campo">
+                <label for="password">Palavra-passe</label>
+                <input type="password" name="password" id="password"
+                       placeholder="Introduza a palavra-passe" required>
+            </div>
+
+            <div class="campo">
+                <label for="confirmar">Confirmar palavra-passe</label>
+                <input type="password" name="confirmar" id="confirmar"
+                       placeholder="Repita a palavra-passe" required>
+            </div>
+
+
+        </div>
+
+        <div class="form-actions">
+
+            <button type="reset" class="btn-limpar">
+                Limpar
+            </button>
+
+            <button type="submit" class="btn-cadastrar">
+                Cadastrar utilizador
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+{% endblock %}

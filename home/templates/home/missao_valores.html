@@ -1,0 +1,384 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Missão e Valores | KShop</title>
+
+    <link rel="stylesheet" href="{% static 'css/missao_e_valores.css' %}">
+</head>
+<body>
+
+    <!-- Cabeçalho -->
+    <header class="topo">
+
+        <a href="/" class="logo">
+            <span class="logo-simbolo">K</span>
+
+            <span class="logo-texto">
+                KShop
+                <small>COSMÉTICOS</small>
+            </span>
+        </a>
+
+        <nav class="menu-principal">
+            <a href="/">Início</a>
+
+            <details class="menu-dropdown">
+                <summary>Sobre nós</summary>
+
+                <div class="submenu">
+                    <a href="{% url 'nossahistoria' %}">
+                        Nossa história
+                    </a>
+
+                    <a href="{% url 'quemsomos' %}">
+                        Quem Somos
+                    </a>
+                </div>
+            </details>
+        </nav>
+
+    </header>
+
+
+    <!-- Apresentação -->
+    <section class="hero">
+
+        <div class="hero-texto">
+
+            <span class="subtitulo">A ESSÊNCIA DA KSHOP</span>
+
+            <h1>
+                Mais do que vender beleza, queremos inspirar confiança.
+            </h1>
+
+            <p>
+                Acreditamos que cada pessoa merece sentir-se bem
+                consigo mesma. É essa convicção que orienta as
+                nossas escolhas, os nossos produtos e a forma
+                como servimos os nossos clientes.
+            </p>
+
+            <a href="#" class="btn-hero">
+                Descubra os nossos valores
+            </a>
+
+        </div>
+
+        <div class="hero-visual">
+
+            <div class="visual-card">
+
+                <span class="numero">02</span>
+
+                <div class="circulo circulo-1"></div>
+                <div class="circulo circulo-2"></div>
+
+                <h2>
+                    Beleza com propósito.
+                    <br>
+                    Cuidado com significado.
+                </h2>
+
+                <p>KSHOP — A NOSSA ESSÊNCIA</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Introdução -->
+    <section class="introducao secao">
+
+        <div class="introducao-titulo">
+
+            <span class="subtitulo">O QUE NOS MOVE</span>
+
+            <h2>
+                A nossa identidade começa naquilo em que acreditamos.
+            </h2>
+
+        </div>
+
+        <div class="introducao-texto">
+
+            <p>
+                Na KShop, cada detalhe representa o nosso compromisso
+                com a beleza, o cuidado e a satisfação dos nossos clientes.
+            </p>
+
+            <p>
+                Não queremos apenas disponibilizar produtos.
+                Queremos construir relações de confiança e proporcionar
+                experiências que façam a diferença no dia a dia de cada pessoa.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Missão -->
+    <section class="missao secao" id="missao">
+
+        <div class="missao-visual">
+            <div class="missao-numero">01</div>
+
+            <div class="missao-simbolo">✦</div>
+
+            <span>O NOSSO PROPÓSITO</span>
+        </div>
+
+        <div class="missao-conteudo">
+
+            <span class="subtitulo">A NOSSA MISSÃO</span>
+
+            <h2>
+                Fazer da beleza uma experiência acessível e especial.
+            </h2>
+
+            <p>
+                Oferecer produtos de cosmética e cuidados pessoais
+                que valorizem a beleza individual, promovam a
+                autoestima e contribuam para o bem-estar dos nossos clientes.
+            </p>
+
+            <p>
+                Trabalhamos para proporcionar qualidade, variedade
+                e um atendimento que coloque sempre as necessidades
+                dos nossos clientes em primeiro lugar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Visão -->
+    <section class="visao secao">
+
+        <div class="visao-conteudo">
+
+            <span class="subtitulo">A NOSSA VISÃO</span>
+
+            <h2>
+                Crescer hoje para inspirar o amanhã.
+            </h2>
+
+            <p>
+                Queremos tornar a KShop uma marca de referência
+                no setor da cosmética, reconhecida pela qualidade
+                dos seus produtos, confiança e proximidade com os clientes.
+            </p>
+
+            <p>
+                Procuramos evoluir continuamente, acompanhar
+                tendências e criar novas oportunidades para
+                oferecer uma experiência cada vez melhor.
+            </p>
+
+        </div>
+
+        <div class="visao-visual">
+
+            <div class="visao-card">
+
+                <span class="visao-numero">02</span>
+
+                <div class="visao-circulo"></div>
+
+                <h3>
+                    Um futuro de crescimento, inovação e confiança.
+                </h3>
+
+                <span class="visao-legenda">O NOSSO FUTURO</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Valores -->
+    <section class="valores" id="valores">
+
+        <div class="secao-titulo">
+
+            <span class="subtitulo">OS NOSSOS VALORES</span>
+
+            <h2>
+                Os princípios que orientam cada escolha.
+            </h2>
+
+            <p>
+                São os nossos valores que definem a forma como
+                trabalhamos, comunicamos e construímos relações.
+            </p>
+
+        </div>
+
+        <div class="valores-grid">
+
+            <article class="valor-card">
+
+                <span class="valor-numero">01</span>
+                <div class="valor-icon">✦</div>
+
+                <h3>Qualidade</h3>
+
+                <p>
+                    Procuramos oferecer produtos que correspondam
+                    às expectativas dos nossos clientes.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">02</span>
+                <div class="valor-icon">♡</div>
+
+                <h3>Confiança</h3>
+
+                <p>
+                    Construímos relações transparentes e duradouras
+                    com todos os que escolhem a KShop.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">03</span>
+                <div class="valor-icon">◎</div>
+
+                <h3>Compromisso</h3>
+
+                <p>
+                    Trabalhamos com dedicação para garantir
+                    a satisfação e o bem-estar dos nossos clientes.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">04</span>
+                <div class="valor-icon">◇</div>
+
+                <h3>Inovação</h3>
+
+                <p>
+                    Acompanhamos as tendências e procuramos
+                    novas formas de melhorar a nossa experiência.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">05</span>
+                <div class="valor-icon">❀</div>
+
+                <h3>Respeito</h3>
+
+                <p>
+                    Valorizamos a individualidade, as preferências
+                    e as necessidades de cada cliente.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">06</span>
+                <div class="valor-icon">♡</div>
+
+                <h3>Dedicação</h3>
+
+                <p>
+                    Colocamos paixão e cuidado em tudo aquilo
+                    que fazemos.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- Mensagem final -->
+    <section class="mensagem-final">
+
+        <span class="subtitulo">KSHOP — COSMÉTICOS</span>
+
+        <h2>
+            Acreditamos na beleza de ser quem somos.
+        </h2>
+
+        <p>
+            E é com esse propósito que continuamos a construir
+            a nossa história.
+        </p>
+
+        <a href="/" class="btn-hero">
+            Conheça a KShop
+        </a>
+
+    </section>
+
+
+    <!-- Rodapé -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+
+                <span class="rodape-logo">KShop<span>.</span></span>
+
+                <p>
+                    Beleza, cuidado e confiança em cada detalhe.
+                </p>
+
+            </div>
+
+            <div class="rodape-links">
+
+                <h4>Navegação</h4>
+
+                <a href="/">Início</a>
+
+                <a href="{% url 'nossahistoria' %}">
+                    Nossa história
+                </a>
+
+                <a href="{% url 'missaoevalores' %}">
+                    Missão e valores
+                </a>
+
+            </div>
+
+        </div>
+
+        <div class="rodape-base">
+            <p>© 2026 KShop. Todos os direitos reservados.</p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

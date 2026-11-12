@@ -1,0 +1,183 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #cecece;
+    color: #29251f;
+}
+
+.admin-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* MENU */
+
+.sidebar {
+    width: 250px;
+    background: #002536;
+    color: white;
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.logo h2 {
+    color: #c49a52;
+    font-size: 30px;
+    letter-spacing: 2px;
+}
+
+.logo span {
+    color: #c8bca8;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.menu-btn,
+.logout-btn {
+    display: block;
+    text-decoration: none;
+    padding: 14px 15px;
+    border-radius: 7px;
+    color: #e9e2d8;
+    font-size: 14px;
+    transition: .3s;
+}
+.menu-btn{
+    background-color:#032938 ;
+}
+
+.menu-btn:hover {
+    background: #c49a52;
+    color: #25211c;
+}
+
+.sidebar-bottom {
+    margin-top: auto;
+}
+
+
+
+
+/* CONTEÚDO */
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    padding: 35px;
+}
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e7e0d5;
+    margin-bottom: 35px;
+}
+
+.topbar h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.topbar p {
+    color: #898176;
+    font-size: 14px;
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 14px;
+}
+
+.avatar {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #c49a52;
+    color: white;
+    font-weight: bold;
+}
+
+/* RESPONSIVIDADE */
+
+@media(max-width: 750px) {
+    .admin-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        padding: 20px;
+    }
+
+    .logo {
+        margin-bottom: 20px;
+    }
+
+    .sidebar nav {
+        flex-direction: row;
+        overflow-x: auto;
+    }
+
+    .menu-btn {
+        white-space: nowrap;
+    }
+
+    .sidebar-bottom {
+        margin-top: 15px;
+    }
+
+    .main-content {
+        padding: 20px;
+    }
+
+    .topbar {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+.logout-btn {
+    margin-top: auto;
+    width: 100%;
+}
+
+.logout-btn button {
+    width: 100%;
+    display: block;
+    padding: 14px 15px;
+    border: none;
+    border-radius: 7px;
+    color: #b36d06;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+.logout-btn button:hover{
+    background-color: #be041d;
+    color: wheat;
+}

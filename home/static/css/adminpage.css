@@ -1,0 +1,192 @@
+/* ===== Cabeçalho do painel ===== */
+.dashboard-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+
+.dashboard-header h2 {
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.dashboard-header span {
+    background: #eee4d2;
+    color: #96702c;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* ===== Grelha de pedidos ===== */
+.pedidos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 22px;
+    align-items: stretch; /* cards da mesma linha com a mesma altura */
+}
+
+/* ===== Card ===== */
+.pedido-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #eee7dc;
+    border-radius: 12px;
+    padding: 22px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+    font-size: 14px;
+    line-height: 1.5;
+    color: #333;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.pedido-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Topo: código + estado */
+.pedido-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 14px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #eee7dc;
+}
+
+.pedido-top > span:first-child {
+    font-size: 15px;
+    font-weight: 700;
+    color: #25211c;
+}
+
+.pedido-status {
+    background: #e2f3e5;
+    color: #198754;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+/* Cliente e data: rótulo em negrito, valor normal */
+.pedido-info {
+    margin-bottom: 16px;
+}
+
+.pedido-info p {
+    margin: 0 0 6px;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+}
+
+.pedido-info strong {
+    font-weight: 600;
+    color: #333;
+}
+
+/* Título da secção de produtos */
+.pedido-card h4 {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .6px;
+    color: #96702c;
+}
+
+/* Cada produto */
+.produto-pedido {
+    padding: 10px 12px;
+    margin-bottom: 8px;
+    background: #faf7f2;
+    border-radius: 8px;
+}
+
+.produto-pedido p {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 400;
+    color: #666;
+}
+
+.produto-pedido p strong {
+    display: block;
+    margin-bottom: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #25211c;
+}
+
+/* Último "Subtotal" em destaque */
+.produto-pedido p:last-child {
+    margin-top: 4px;
+    padding-top: 4px;
+    border-top: 1px dashed #e4dccd;
+    font-weight: 600;
+    color: #25211c;
+}
+
+/* ===== Botões (sempre no fundo do card) ===== */
+.pedido-acoes {
+    display: flex;
+    gap: 10px;
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+.pedido-acoes form {
+    flex: 1;
+    margin: 0;
+}
+
+.pedido-acoes button {
+    width: 100%;
+    padding: 11px 8px;
+    border: none;
+    border-radius: 7px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+    transition: background .2s;
+}
+
+.concluir-btn { background: #198754; }
+.concluir-btn:hover { background: #146c43; }
+
+.eliminar-btn { background: #dc3545; }
+.eliminar-btn:hover { background: #bb2d3b; }
+
+/* Sem pedidos */
+.pedidos-container > p {
+    grid-column: 1 / -1;
+    padding: 40px 20px;
+    text-align: center;
+    color: #888;
+    background: #fff;
+    border: 1px solid #eee7dc;
+    border-radius: 12px;
+}.pedido-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 6px;
+    padding: 12px 0 0;
+    border-top: 1px solid #eee7dc;
+    font-size: 14px;
+    color: #666;
+}
+
+.pedido-total strong {
+    font-size: 17px;
+    font-weight: 700;
+    color: #b8893b;
+}

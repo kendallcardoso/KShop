@@ -1,0 +1,278 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem Somos | Assíncrono</title>
+
+    <link rel="stylesheet" href="{% static 'css/quemsomos.css' %}">
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header class="topo">
+
+         <a href="{% url 'produtos' %}" class="logo">
+            <img src="{% static 'img/kshop-logo.svg' %}" alt="KShop Cosméticos">
+        </a>
+
+        <nav class="menu-principal">
+
+            <a href="{% url 'produtos' %}">Início</a>
+
+            <details class="menu-dropdown" >
+                <summary>Sobre nós</summary>
+
+                <div class="submenu">
+                    <a href="{% url 'nossahistoria' %}">Nossa história</a>
+                    <a href="{% url 'missaoevalores' %}">Missão e valores</a>
+                </div>
+            </details>
+
+        </nav>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-imagem">
+            <div class="imagem-conceito">
+                <span class="numero">01</span>
+
+                <div class="linha-dourada"></div>
+
+                <h2>
+                    Ideias que<br>
+                    ganham forma.
+                </h2>
+
+                <p>ASSÍNCRONO — A NOSSA IDENTIDADE</p>
+            </div>
+        </div>
+
+
+        <div class="hero-texto">
+
+            <span class="subtitulo">QUEM SOMOS</span>
+
+            <h1>
+                Mais do que um nome,
+                uma forma de fazer.
+            </h1>
+
+            <p>
+                Somos uma equipa movida por ideias, criatividade e
+                vontade de fazer a diferença. Acreditamos que cada
+                grande realização começa com uma ideia e cresce
+                através da dedicação e colaboração.
+            </p>
+
+            <a href="#sobre" class="btn-hero">
+                Conheça-nos
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOBRE NÓS -->
+    <section class="sobre secao" id="sobre">
+
+        <div class="sobre-titulo">
+
+            <span class="subtitulo">A NOSSA IDENTIDADE</span>
+
+            <h2>
+                Construímos com
+                propósito e dedicação.
+            </h2>
+
+        </div>
+
+
+        <div class="sobre-conteudo">
+
+            <p>
+                O Assíncrono nasce da vontade de fazer as coisas
+                de maneira consciente, criativa e colaborativa.
+                Acreditamos que boas ideias ganham força quando
+                são partilhadas e transformadas em ações.
+            </p>
+
+            <p>
+                Trabalhamos com compromisso, abertura à aprendizagem
+                e atenção aos detalhes. Cada desafio representa
+                uma oportunidade para evoluir, descobrir novas
+                perspetivas e alcançar melhores resultados.
+            </p>
+
+            <p>
+                Procuramos construir uma identidade baseada na
+                confiança, na responsabilidade e na vontade
+                constante de melhorar.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- O QUE NOS DEFINE -->
+    <section class="valores secao">
+
+        <div class="secao-titulo">
+
+            <span class="subtitulo">A NOSSA ESSÊNCIA</span>
+
+            <h2>O que nos define</h2>
+
+            <p>
+                Princípios que orientam a nossa maneira de pensar,
+                trabalhar e crescer.
+            </p>
+
+        </div>
+
+
+        <div class="valores-grid">
+
+            <article class="valor-card">
+
+                <span class="valor-numero">01</span>
+
+                <div class="valor-icone">✦</div>
+
+                <h3>Criatividade</h3>
+
+                <p>
+                    Procuramos novas ideias e diferentes perspetivas
+                    para transformar desafios em oportunidades.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">02</span>
+
+                <div class="valor-icone">◇</div>
+
+                <h3>Colaboração</h3>
+
+                <p>
+                    Valorizamos a partilha de ideias, o respeito
+                    e a força do trabalho em conjunto.
+                </p>
+
+            </article>
+
+
+            <article class="valor-card">
+
+                <span class="valor-numero">03</span>
+
+                <div class="valor-icone">↗</div>
+
+                <h3>Evolução</h3>
+
+                <p>
+                    Aprendemos com cada experiência e procuramos
+                    melhorar continuamente.
+                </p>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- CHAMADA PARA A HISTÓRIA -->
+    <section class="historia-chamada">
+
+        <div>
+
+            <span class="subtitulo">CONTINUE A DESCOBRIR</span>
+
+            <h2>
+                Conheça o caminho que nos trouxe até aqui.
+            </h2>
+
+            <p>
+                Descubra a nossa história e os valores que
+                orientam o nosso caminho.
+            </p>
+
+        </div>
+
+        <a href="#" class="btn-hero">
+            Nossa história
+        </a>
+
+    </section>
+
+
+    <!-- RODAPÉ -->
+    <footer class="rodape">
+
+        <div class="rodape-conteudo">
+
+            <div class="rodape-marca">
+
+                <div class="rodape-logo">
+                    ASSÍNCRONO<span>.</span>
+                </div>
+
+                <p>
+                    Ideias, dedicação e colaboração para
+                    construir novas possibilidades.
+                </p>
+
+            </div>
+
+
+            <div class="rodape-col">
+
+                <h4>Navegação</h4>
+
+                <ul>
+                    <li><a href="#">Início</a></li>
+                    <li><a href="#">Quem somos</a></li>
+                    <li><a href="#">Nossa história</a></li>
+                    <li><a href="#">Missão e valores</a></li>
+                </ul>
+
+            </div>
+
+
+            <div class="rodape-col">
+
+                <h4>Sobre nós</h4>
+
+                <ul>
+                    <li><a href="#">A nossa identidade</a></li>
+                    <li><a href="#">A nossa trajetória</a></li>
+                    <li><a href="#">Os nossos princípios</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
+
+        <div class="rodape-base">
+            <p>
+                © {% now "Y" %} Assíncrono. Todos os direitos reservados.
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+</html>

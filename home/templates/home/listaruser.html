@@ -1,0 +1,108 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Listar Utilizadores | KShop{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/listarusers.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="listar-container">
+
+    <div class="pagina-header">
+        <div>
+            <h1>Utilizadores cadastrados</h1>
+            <p>Consulta e gere os utilizadores da KShop Cosméticos.</p>
+        </div>
+
+        <a href="{% url 'cadastrarusers' %}" class="btn-adicionar">
+            + Novo utilizador
+        </a>
+    </div>
+
+    <div class="lista-card">
+
+        <div class="lista-topo">
+            <h2>Lista de utilizadores</h2>
+            <span>{{ users|length }} utilizadores</span>
+        </div>
+
+        <div class="tabela-container">
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Estado</th>
+                        <th>Perfil</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    {% for user in users %}
+                    <tr>
+
+                        
+
+                        <td>{{ user.email|default:"Não informado" }}</td>
+
+                        <td>
+                            {% if user.is_active %}
+                                <span class="estado ativo">Ativo</span>
+                            {% else %}
+                                <span class="estado inativo">Inativo</span>
+                            {% endif %}
+                        </td>
+                         <td>
+                            {% if user.is_superuser %}
+                                <span id="admin">Admin</span>
+                            {% else %}
+                                <span id="users">User</span>
+                            {% endif %}
+                        </td>
+
+                        <td>
+                            <div class="acoes">
+
+                                <a href="#" class="btn-editar" data-iduser="{{ user.id }}">
+                                    Editar
+                                </a>
+
+                                <form method="POST" action="#">
+                                    {% csrf_token %}
+
+                                    <button type="button" class="btn-eliminar" data-user ="{{ user.email }}"data-id="{{ user.id }}" >
+                                        Eliminar
+                                    </button>
+                                </form>
+
+                            </div>
+                        </td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+                        <td colspan="5" class="sem-produtos">
+                            Nenhum utilizador cadastrado.
+                        </td>
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+<script src="{% static 'js/listaruser.js' %}" ></script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Criar conta | KShop</title>
+  <link rel="stylesheet" href="{% static 'registration/cadastro.css' %}">
+</head>
+<body>
+  <div class="box">
+    <h1>Criar conta</h1>
+
+    {% if erro %}
+      <p class="erro">{{ erro }}</p>
+    {% endif %}
+
+    <form method="post">
+      {% csrf_token %}
+
+
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="password">Palavra-passe</label>
+      <input type="password" id="password" name="password" required>
+
+      <label for="password2">Repetir palavra-passe</label>
+      <input type="password" id="password2" name="password2" required>
+
+      <input type="hidden" name="next" value="{{ next }}">
+
+      <button type="submit">Criar conta</button>
+    </form>
+
+    <p class="alt">Já tens conta? <a href="{% url 'login' %}?next={{ next }}">Entrar</a></p>
+  </div>
+</body>
+</html>

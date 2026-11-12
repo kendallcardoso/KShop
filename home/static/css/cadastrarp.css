@@ -1,0 +1,155 @@
+
+.cadastro-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,.04);
+}
+
+.form-header {
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee7dc;
+    padding-bottom: 20px;
+}
+
+.form-header h2 {
+    font-size: 21px;
+    margin-bottom: 8px;
+    color: #29251f;
+}
+
+.form-header p {
+    color: #898176;
+    font-size: 14px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+}
+
+.campo {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.campo-completo {
+    grid-column: 1 / -1;
+}
+
+.campo label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #39332b;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #ded8ce;
+    border-radius: 7px;
+    outline: none;
+    background: #fff;
+    font-family: inherit;
+    font-size: 14px;
+    transition: .3s;
+}
+
+.campo input:focus,
+.campo select:focus,
+.campo textarea:focus {
+    border-color: #b8893b;
+    box-shadow: 0 0 0 3px rgba(184,137,59,.10);
+}
+
+.campo textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.campo input[type="file"] {
+    background: #faf8f4;
+    cursor: pointer;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+    padding-top: 22px;
+    border-top: 1px solid #eee7dc;
+}
+
+.form-actions button {
+    padding: 13px 22px;
+    border: none;
+    border-radius: 7px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.btn-limpar {
+    background: #eeeae3;
+    color: #514a40;
+}
+
+.btn-limpar:hover {
+    background: #ddd5c8;
+}
+
+.btn-cadastrar {
+    background: #25211c;
+    color: white;
+}
+
+.btn-cadastrar:hover {
+    background: #b8893b;
+}
+
+.mensagem {
+    padding: 13px;
+    border-radius: 7px;
+    margin-bottom: 22px;
+    font-size: 14px;
+}
+
+.mensagem.ok {
+    background: #e5f5e9;
+    color: #26733b;
+}
+
+.mensagem.of {
+    background: #fce9e7;
+    color: #a83e35;
+}
+
+@media(max-width: 600px) {
+
+    .cadastro-container {
+        padding: 20px 15px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-completo {
+        grid-column: auto;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}

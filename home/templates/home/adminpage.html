@@ -1,0 +1,82 @@
+
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block title %}Administração | KShop{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/adminpage.css' %}">
+{% endblock %}
+
+{% block page_title %}
+Painel Administrativo
+{% endblock %}
+
+{% block page_description %}
+Bem-vindo à área de gestão da KShop Cosméticos.
+{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-header">
+    <h2>Pedidos ativos</h2>
+    <span>{{ pedidos_ativos.count }} pedidos</span>
+</div>
+
+<div class="pedidos-container">
+
+    {% for pedido in pedidos_ativos %}
+
+<div class="pedido-card">
+
+    <div class="pedido-top">
+        <span>Pedido #{{ pedido.cod }}</span>
+        <span class="pedido-status">Ativo</span>
+    </div>
+
+    <div class="pedido-info">
+        <p><strong>Cliente:</strong> {{ pedido.user.username }}</p>
+        <p><strong>Data:</strong> {{ pedido.criado_em|date:"d/m/Y H:i" }}</p>
+    </div>
+
+    <h4>Produtos do pedido</h4>
+
+    {% for item in pedido.itens.all %}
+
+        <div class="produto-pedido">
+            <p><strong>{{ item.produto.nome }}</strong></p>
+            <p>Quantidade: {{ item.quantidade }}</p>
+            <p>Preço unitário: {{ item.preco }}</p>
+            <p>Subtotal: {{ item.subtotal|floatformat:2 }}</p>
+            
+        </div>
+        
+    {% endfor %}
+        <p>Total: {{ pedido.total|floatformat:2 }}</p>
+    <div class="pedido-acoes">
+
+        <form method="POST" action="#">
+            {% csrf_token %}
+            <button type="submit" class="concluir-btn">
+                Marcar como concluído
+            </button>
+        </form>
+
+        <form method="POST" action="#"
+              onsubmit="return confirm('Eliminar este pedido?')">
+            {% csrf_token %}
+            <button type="submit" class="eliminar-btn">
+                Eliminar
+            </button>
+        </form>
+
+    </div>
+
+</div>
+
+{% empty %}
+    <p>Nenhum pedido ativo.</p>
+{% endfor %}
+
+
+{% endblock %}

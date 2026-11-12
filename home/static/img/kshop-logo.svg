@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 100" role="img" aria-label="KShop Cosméticos">
+  <title>KShop Cosméticos</title>
+
+  <!-- Monograma -->
+  <circle cx="50" cy="50" r="42" fill="none" stroke="#b8893b" stroke-width="2.5"/>
+  <circle cx="50" cy="50" r="35" fill="none" stroke="#b8893b" stroke-width="0.8" opacity="0.55"/>
+
+  <path d="M38 29 V71" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round"/>
+  <path d="M63 29 L40 51 L64 71" fill="none" stroke="#1a1a1a" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Brilho -->
+  <path d="M82 14 Q82 24 92 24 Q82 24 82 34 Q82 24 72 24 Q82 24 82 14 Z" fill="#b8893b"/>
+
+  <!-- Nome -->
+  <text x="108" y="60" font-family="Georgia, 'Times New Roman', serif" font-size="46" font-weight="700" letter-spacing="1" fill="#1a1a1a">KShop</text>
+  <text x="110" y="82" font-family="'Segoe UI', Arial, sans-serif" font-size="12" font-weight="600" letter-spacing="6.5" fill="#b8893b">COSMÉTICOS</text>
+</svg>
