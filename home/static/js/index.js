@@ -232,7 +232,7 @@ atualizarquantidade();
 renderizarCarrinho();
 
 // ---------- Carrossel do hero ----------
-const INTERVALO = 4000; // tempo entre trocas, em milissegundos
+const INTERVALO = 7000; // tempo entre trocas, em milissegundos
 
 const heroEl = document.getElementById("hero");
 const heroImg = document.getElementById("hero-img");
