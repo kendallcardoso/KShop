@@ -127,6 +127,8 @@ def enviar_email_pedido(pedido, total):
         f"{produtos}\n"
         f"TOTAL A PAGAR: {total} Kz\n\n"
         "OBS:Pagemantos apenas,depois de receber o Produto\n"
+        "Para o levantamento do produto,é obrigatório a apresentação do Código de pedido\n"
+        "Contacte-nos para saber como receber o produto\n"
         "Whatsapp- 932021316 \n"
         "Obrigado por escolheres a KShop!\n"
         "KShop Cosméticos"
