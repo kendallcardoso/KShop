@@ -1767,3 +1767,66 @@ img { max-width: 100%; }
   margin: 0;
   line-height: 1.5;
 }
+/* ---------- Header no telemóvel (arrumado) ---------- */
+@media (max-width: 768px) {
+  .topo {
+    position: relative;
+    z-index: 10;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 12px;
+    padding: 16px 18px;
+    background: var(--hero-bg);
+    transition: background-color 1s ease;
+  }
+
+  /* os filhos passam a fazer parte da grelha do .topo */
+  .topo-direita {
+    display: contents;
+  }
+
+  .topo .logo { order: 1; }
+
+  .btn-carrinho {
+    order: 2;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+
+  .menu-principal {
+    order: 3;
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 14px 22px;
+  }
+
+  /* conta ocupa uma linha própria */
+  .conta {
+    flex: 0 0 100%;
+    justify-content: flex-start;
+    gap: 14px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .conta-sair button {
+    padding: 6px 14px;
+    border: 1px solid currentColor;
+    border-radius: 999px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+
+  .btn-notificacao { margin-left: auto; }
+
+  /* o header já não sobrepõe o hero */
+  .hero-imagem { height: 340px; }
+
+  .hero-imagem img {
+    margin-top: 0;
+    padding: 24px;
+  }
+}
