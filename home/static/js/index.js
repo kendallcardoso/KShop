@@ -212,7 +212,7 @@ fetch("/api/produtos/")
 
       const ml = document.createElement("p");
       ml.className = "ml";
-      ml.textContent = produto.ml + " (ml)";
+      ml.textContent = produto.ml ;
 
       const botao = document.createElement("button");
       botao.textContent = "Adicionar ao carrinho";
