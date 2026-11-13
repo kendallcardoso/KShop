@@ -116,7 +116,7 @@ STORAGES = {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        # deixa o que já tens aqui (ex.: whitenoise), não mudes
+        # mantém o que já tinhas antes (ex.: whitenoise)
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
