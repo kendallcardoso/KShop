@@ -246,12 +246,109 @@ let indiceSlide = 0;
 let timer = null;
 let aTrocar = false;
 
+
+
+
+
 // pré-carrega as imagens para não piscar na troca
 SLIDES.forEach(slide => {
   const pre = new Image();
   pre.src = slide.img;
 });
+// ---------- Aviso de email após finalizar ----------
+function mostrarAvisoEmail() {
+  const spinner = document.getElementById("spinner");
 
+  let aviso = document.getElementById("aviso-email");
+
+  if (!aviso) {
+    aviso = document.createElement("div");
+    aviso.id = "aviso-email";
+    aviso.setAttribute("role", "status");
+    aviso.setAttribute("aria-live", "polite");
+
+    const caixa = document.createElement("div");
+    caixa.className = "aviso-email-caixa";
+
+    // copia do spinner existente, para ficar igual
+    const roda = spinner.cloneNode(true);
+    roda.removeAttribute("id");
+    roda.style.display = "block";
+
+    const titulo = document.createElement("h3");
+    titulo.textContent = "Pedido enviado!";
+
+    const texto = document.createElement("p");
+    texto.textContent =
+      "Verifique o seu email. Vai receber as instruções para concluir a compra. " +
+      "Se não encontrar, veja também a pasta de spam.";
+
+    caixa.append(roda, titulo, texto);
+    aviso.appendChild(caixa);
+    document.body.appendChild(aviso);
+  }
+
+  aviso.classList.add("visivel");
+}
+
+// ---------- Finalizar compra ----------
+async function finalizar(carrinho) {
+  const csrftoken = document.querySelector('meta[name="csrf-token"]').content;
+
+  const spinner = document.getElementById("spinner");
+  const btnFinalizar = document.getElementById("finalizar");
+
+  let sucesso = false;
+
+  try {
+    spinner.style.display = "block";
+    btnFinalizar.disabled = true;
+
+    const resposta = await fetch("/finalizar/compra", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrftoken,
+      },
+      body: JSON.stringify(carrinho),
+    });
+
+    if (resposta.status === 401) {
+      const dados = await resposta.json();
+      window.location.href = dados.login_url;
+      return;
+    }
+
+    if (!resposta.ok) {
+      throw new Error("Erro ao submeter o carrinho");
+    }
+
+    const dados = await resposta.json();
+    console.log("Pedido criado com sucesso", dados);
+
+    sucesso = true;
+
+    // limpar carrinho só depois da confirmação do servidor
+    carrinho.length = 0;
+    atualizarTudo();
+    fecharCarrinho();
+
+    // troca o spinner de carregamento pelo aviso do email
+    spinner.style.display = "none";
+    mostrarAvisoEmail();
+
+    await esperar(6000);
+    window.location.href = "/";
+  } catch (error) {
+    console.error("Erro ao finalizar compra:", error);
+  } finally {
+    // em caso de sucesso, a página vai mudar, por isso o botão fica bloqueado
+    if (!sucesso) {
+      spinner.style.display = "none";
+      btnFinalizar.disabled = false;
+    }
+  }
+}
 function animar(elemento, classe, atraso) {
   elemento.classList.remove("entrar", "sair");
   elemento.style.animationDelay = atraso + "s";
@@ -419,69 +516,62 @@ for (const btn of btncat) {
 
 // ---------- Finalizar compra ----------
 async function finalizar(carrinho) {
+  const csrftoken = document.querySelector('meta[name="csrf-token"]').content;
 
-    const csrftoken = document.querySelector('meta[name="csrf-token"]').content;
+  const spinner = document.getElementById("spinner");
+  const btnFinalizar = document.getElementById("finalizar");
 
-    const spinner = document.getElementById("spinner");
-    const btnFinalizar = document.getElementById("finalizar");
+  let sucesso = false;
 
-    try {
+  try {
+    spinner.style.display = "block";
+    btnFinalizar.disabled = true;
 
-        // Mostrar spinner
-        spinner.style.display = "block";
+    const resposta = await fetch("/finalizar/compra", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": csrftoken,
+      },
+      body: JSON.stringify(carrinho),
+    });
 
-        // Impedir novos cliques durante o processamento
-        btnFinalizar.disabled = true;
-
-        console.log("Carrinho enviado:", carrinho);
-        console.log("JSON:", JSON.stringify(carrinho));
-
-        const resposta = await fetch("/finalizar/compra", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "X-CSRFToken": csrftoken,
-            },
-            body: JSON.stringify(carrinho),
-        });
-
-        if (resposta.status === 401) {
-            const dados = await resposta.json();
-
-            window.location.href = dados.login_url;
-            return;
-        }
-
-        if (!resposta.ok) {
-            throw new Error("Erro ao submeter o carrinho");
-        }
-
-        const dados = await resposta.json();
-
-        console.log("Pedido criado com sucesso", dados);
-
-        // Limpar carrinho depois da confirmação do servidor
-        carrinho.length = 0;
-
-        atualizarTudo();
-        fecharCarrinho();
-
-        window.location.href = "/";
-
-    } catch (error) {
-
-        console.error("Erro ao finalizar compra:", error);
-
-    } finally {
-
-        // Esconder spinner
-        spinner.style.display = "none";
-
-        // Reativar botão
-        btnFinalizar.disabled = false;
+    if (resposta.status === 401) {
+      const dados = await resposta.json();
+      window.location.href = dados.login_url;
+      return;
     }
-}
 
+    if (!resposta.ok) {
+      throw new Error("Erro ao submeter o carrinho");
+    }
+
+    const dados = await resposta.json();
+    console.log("Pedido criado com sucesso", dados);
+
+    sucesso = true;
+
+    // limpar carrinho só depois da confirmação do servidor
+    carrinho.length = 0;
+    atualizarTudo();
+    fecharCarrinho();
+
+    // troca o spinner de carregamento pelo aviso do email
+    spinner.style.display = "none";
+    mostrarAvisoEmail();
+
+    await esperar(6000);
+    window.location.href = "/";
+  } catch (error) {
+    console.error("Erro ao finalizar compra:", error);
+  } finally {
+    // em caso de sucesso, a página vai mudar, por isso o botão fica bloqueado
+    if (!sucesso) {
+      spinner.style.display = "none";
+      btnFinalizar.disabled = false;
+    }
+  }
+}
 const finalizarvenda = document.getElementById("finalizar");
 finalizarvenda.addEventListener("click", () => {
   if (carrinho.length === 0) {

@@ -1733,3 +1733,37 @@ img { max-width: 100%; }
     width: 100%;
   }
 }
+#aviso-email {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 16px;
+}
+
+#aviso-email.visivel {
+  display: flex;
+}
+
+.aviso-email-caixa {
+  background: #fff;
+  color: #222;
+  max-width: 380px;
+  width: 100%;
+  padding: 28px 24px;
+  border-radius: 12px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.aviso-email-caixa h3 {
+  margin: 16px 0 8px;
+}
+
+.aviso-email-caixa p {
+  margin: 0;
+  line-height: 1.5;
+}
