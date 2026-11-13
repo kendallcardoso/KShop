@@ -16,18 +16,17 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 # Application definition
-
+ALLOWED_HOSTS = ["kshop-six.vercel.app", ".vercel.app", "localhost", "127.0.0.1"]
+CSRF_TRUSTED_ORIGINS = ["https://kshop-six.vercel.app", "https://*.vercel.app"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
     'home',
-    
 ]
 
 MIDDLEWARE = [
