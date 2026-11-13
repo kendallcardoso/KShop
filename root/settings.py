@@ -3,24 +3,29 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
-_cu = os.environ.get("CLOUDINARY_URL", "")
-if _cu and not _cu.startswith("cloudinary://"):
-    os.environ.pop("CLOUDINARY_URL", None)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
+
+# Se a CLOUDINARY_URL vier mal formada (do .env ou da Vercel), ignora-a e usa
+# as variáveis CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY e CLOUDINARY_API_SECRET.
+# Tem de ficar ANTES de o pacote 'cloudinary' ser carregado (INSTALLED_APPS).
+_cu = os.environ.get("CLOUDINARY_URL", "")
+if _cu and not _cu.startswith("cloudinary://"):
+    os.environ.pop("CLOUDINARY_URL", None)
+
 SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = os.getenv('DEBUG', 'False') == 'True'
-ALLOWED_HOSTS = ["kshop.vercel.app",".vercel.app","localhost","127.0.0.1"]
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
-CSRF_TRUSTED_ORIGINS = [
-    "https://kshop.vercel.app",
-]
 
-# Application definition
 ALLOWED_HOSTS = ["kshop-six.vercel.app", ".vercel.app", "localhost", "127.0.0.1"]
 CSRF_TRUSTED_ORIGINS = ["https://kshop-six.vercel.app", "https://*.vercel.app"]
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+
+# Application definition
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -113,23 +118,30 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
+
+
+# Armazenamento de ficheiros
+# As fotos vão para o Cloudinary (a Vercel tem o disco só de leitura).
 STORAGES = {
     "default": {
         "BACKEND": "cloudinary_storage.storage.MediaCloudinaryStorage",
     },
     "staticfiles": {
-        # mantém o que já tinhas antes (ex.: whitenoise)
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
 }
 
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.1/howto/static-files/
+
 LOGIN_URL = 'loginadmin'
 STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / "staticfiles"
 LOGOUT_REDIRECT_URL = "/"
-LOGIN_REDIRECT_URL = "/"   
+LOGIN_REDIRECT_URL = "/"
+
+
 # Email
 # https://docs.djangoproject.com/en/6.1/topics/email/#topic-email-configuration
 
