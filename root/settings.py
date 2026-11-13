@@ -3,6 +3,9 @@ import os
 from dotenv import load_dotenv
 from pathlib import Path
 
+_cu = os.environ.get("CLOUDINARY_URL", "")
+if _cu and not _cu.startswith("cloudinary://"):
+    os.environ.pop("CLOUDINARY_URL", None)
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 load_dotenv(BASE_DIR / '.env')
