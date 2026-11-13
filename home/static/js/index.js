@@ -382,7 +382,7 @@ function irPara(novo) {
     heroImg.src = slide.img;
     heroTitulo.textContent = slide.titulo;
     heroDescricao.textContent = slide.texto;
-    heroEl.style.setProperty("--hero-bg", slide.cor);
+    document.documentElement.style.setProperty("--hero-bg", slide.cor);
     pontos.forEach((p, i) => p.classList.toggle("ativo", i === novo));
 
     elementosHero.forEach((el, i) => animar(el, "entrar", i * 0.12));
@@ -408,7 +408,7 @@ heroEl.addEventListener("mouseleave", iniciarTimer);
 
 // entrada bonita logo ao abrir a página
 elementosHero.forEach((el, i) => animar(el, "entrar", i * 0.12));
-heroEl.style.setProperty("--hero-bg", SLIDES[0].cor);
+document.documentElement.style.setProperty("--hero-bg", SLIDES[0].cor);
 iniciarTimer();
 
 // ---------- Submenus ----------
